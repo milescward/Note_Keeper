@@ -40,6 +40,10 @@ namespace NoteKeeper.Views
 
         public void Save_Clicked(Object sender, EventArgs eventArgs)
         {
+            var message = viewModel.IsNewNote ? "SaveNote" : "UpdateNote";
+
+            MessagingCenter.Send(this, message, viewModel.Note);
+
             Navigation.PopModalAsync();
         }
 
